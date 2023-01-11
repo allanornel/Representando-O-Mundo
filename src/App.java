@@ -1,19 +1,10 @@
 public class App {
-    public static void main(String[] args) throws Exception {
-        Question question = new Question();
-        question.description = "Qual a cor do céu?";
-        Answer answer1 = new Answer();
-        answer1.content = "Azul";
-        answer1.isCorrect = true;
-        answer1.id = "a";
-        Answer answer2 = new Answer();
-        answer2.content = "Vermelho";
-        answer2.isCorrect = false;
-        answer2.id = "b";
-        question.answers = new Answer[] {answer1, answer2};
-        System.out.println(question.description);
-        System.out.println(question.answers[0].id + ") " + question.answers[0].content);
-        System.out.println(question.answers[1].id + ") " +question.answers[1].content);
+    public static void main(String[] args) {
+        Question question = new Question("Qual a cor do céu?", new Answer[] {new Answer("Azul", true, "a"), new Answer("Vermelho", false, "b")}); 
+        
+        System.out.println(question.getDescription());
+        System.out.println(question.getAnswers()[0].getId() + ") " + question.getAnswers()[0].getContent());
+        System.out.println(question.getAnswers()[1].getId() + ") " + question.getAnswers()[1].getContent());
         System.out.println(question.answerTheQuestion("a") ? "Acertou a questão!!!": "Errou a questão");
     }
 }
